@@ -1,6 +1,6 @@
 import { Tab } from '../Tab/Tab';
 
-export const RestaurantTabs = ({ restaurants, activeId, onTabClic }) => {
+export const RestaurantTabs = ({ restaurants, activeId, onTabClick }) => {
   return (
     <div className="tabs-container">
       {restaurants.map((restaurant) => {
@@ -9,7 +9,7 @@ export const RestaurantTabs = ({ restaurants, activeId, onTabClic }) => {
             key={restaurant.id}
             name={restaurant.name}
             isActive={restaurant.id === activeId}
-            onClick={() => onTabClic(restaurant.id)}
+            onClick={() => onTabClick(restaurant.id)}
           />
         );
       })}

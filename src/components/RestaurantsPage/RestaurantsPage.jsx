@@ -6,8 +6,8 @@ import { RestaurantTabs } from '../RestaurantTabs/RestaurantTabs';
 import { incrementKey, decrementKey } from '../../utils/counters';
 
 export const RestaurantsPage = ({ title }) => {
-  const [activRestaurantId, setActivRestaurantId] = useState(restaurants[0]?.id);
-  const activRestaurant = restaurants.find((restaurant) => restaurant.id === activRestaurantId);
+  const [activeRestaurantId, setActivRestaurantId] = useState(restaurants[0]?.id);
+  const activeRestaurant = restaurants.find((restaurant) => restaurant.id === activeRestaurantId);
 
   const [basket, setBasket] = useState({});
 
@@ -33,12 +33,12 @@ export const RestaurantsPage = ({ title }) => {
       <div className="restaurants-tabs">
         <RestaurantTabs
           restaurants={restaurants}
-          activeId={activRestaurantId}
-          onTabClic={setActivRestaurantId}
+          activeId={activeRestaurantId}
+          onTabClick={setActivRestaurantId}
         />
       </div>
       <RestaurantCard
-        restaurant={activRestaurant}
+        restaurant={activeRestaurant}
         basket={basket}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
