@@ -1,6 +1,13 @@
-import { ReviewsItem } from "../ReviewsItem/ReviewsItem";
+import { ReviewsItem } from '../ReviewsItem/ReviewsItem';
 
 export const ReviewsList = ({ reviewItems }) => {
+  if (!reviewItems || reviewItems.length === 0) {
+    return (
+      <p style={{ color: 'gray' }} className="reviews-empty">
+        This restaurant has no reviews yet....
+      </p>
+    );
+  }
   return (
     <section className="reviews-List">
       <ul>
