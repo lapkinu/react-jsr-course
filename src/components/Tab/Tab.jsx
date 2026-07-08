@@ -1,4 +1,4 @@
-export const RestaurantTab = ({ name, isActive, onClick }) => {
+export const Tab = ({ name, isActive, onClick }) => {
   return (
     <button
       style={{ margin: '10px' }}

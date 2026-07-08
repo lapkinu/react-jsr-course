@@ -3,7 +3,7 @@ import { restaurants } from '../../../materials/mock';
 import { RestaurantCard } from '../RestaurantCard/RestaurantCard';
 import { RestaurantsPageHeader } from '../RestaurantsPageHeader/RestaurantsPageHeader';
 import { RestaurantTabs } from '../RestaurantTabs/RestaurantTabs';
-import { COUNTER_LIMITS } from '../../constants/limits';
+import { incrementKey, decrementKey } from '../../utils/counters';
 
 export const RestaurantsPage = ({ title }) => {
   const [activRestaurantId, setActivRestaurantId] = useState(restaurants[0]?.id);
@@ -12,31 +12,11 @@ export const RestaurantsPage = ({ title }) => {
   const [basket, setBasket] = useState({});
 
   const handleIncrement = (dishId) => {
-    setBasket((prev) => {
-      const currentCount = prev[dishId] || 0;
-      return currentCount >= COUNTER_LIMITS.MAX ? prev : { ...prev, [dishId]: currentCount + 1 };
-    });
+    setBasket((prev) => incrementKey(prev, dishId));
   };
 
   const handleDecrement = (dishId) => {
-    setBasket((prev) => {
-      const currentCount = prev[dishId] || 0;
-
-      if (currentCount <= COUNTER_LIMITS.MIN) {
-        return prev;
-      }
-
-      const newCount = currentCount - 1;
-      const newBasket = { ...prev };
-
-      if (newCount === 0) {
-        delete newBasket[dishId];
-      } else {
-        newBasket[dishId] = newCount;
-      }
-
-      return newBasket;
-    });
+    setBasket((prev) => decrementKey(prev, dishId));
   };
 
   if (!restaurants || restaurants.length === 0) {
