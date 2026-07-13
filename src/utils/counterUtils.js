@@ -1,29 +1,29 @@
-import { COUNTER_LIMITS } from '../constants/limits';
+import { COUNTER_CONST_MENU } from '../constants/counterConst';
 
 export const incrementKey = (counters, key) => {
   const currentCount = counters[key] || 0;
 
-  if (currentCount >= COUNTER_LIMITS.MAX) {
+  if (currentCount >= COUNTER_CONST_MENU.MAX) {
     return counters;
   }
 
   return {
     ...counters,
-    [key]: currentCount + 1,
+    [key]: currentCount + COUNTER_CONST_MENU.STEP,
   };
 };
 
 export const decrementKey = (counters, key) => {
   const currentCount = counters[key] || 0;
 
-  if (currentCount <= COUNTER_LIMITS.MIN) {
+  if (currentCount <= COUNTER_CONST_MENU.MIN) {
     return counters;
   }
 
-  const newCount = currentCount - 1;
+  const newCount = currentCount - COUNTER_CONST_MENU.STEP;
   const updatedCounters = { ...counters };
 
-  if (newCount === COUNTER_LIMITS.MIN) {
+  if (newCount === COUNTER_CONST_MENU.MIN) {
     delete updatedCounters[key];
   } else {
     updatedCounters[key] = newCount;

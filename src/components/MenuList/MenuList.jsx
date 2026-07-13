@@ -1,6 +1,9 @@
+import { useBasket } from '../../hooks/useBasket';
 import { MenuItem } from '../MenuItem/MenuItem';
 
-export const MenuList = ({ menuItems, basket, handleIncrement, handleDecrement }) => {
+export const MenuList = ({ menuItems }) => {
+  const { basket } = useBasket();
+
   if (!menuItems || menuItems.length === 0) {
     return (
       <p style={{ color: 'gray' }} className="menu-empty">
@@ -14,16 +17,7 @@ export const MenuList = ({ menuItems, basket, handleIncrement, handleDecrement }
       <ul>
         {menuItems.map((dish) => {
           const currentCount = basket[dish.id] || 0;
-          return (
-            <MenuItem
-              key={dish.id}
-              name={dish.name}
-              dish={dish}
-              count={currentCount}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
-            />
-          );
+          return <MenuItem key={dish.id} name={dish.name} dish={dish} count={currentCount} />;
         })}
       </ul>
     </section>
