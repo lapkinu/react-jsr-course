@@ -1,19 +1,23 @@
+import { useBasket } from '../../hooks/useBasket';
 import { Counter } from '../Counter/Counter';
+import { COUNTER_CONST_MENU } from '../../constants/counterConst';
 
-export const MenuItem = ({ dish, name, count, handleIncrement, handleDecrement }) => {
-  if (!dish) {
-    return null;
-  }
+export const MenuItem = ({ dish, name, count }) => {
+  const { increment, decrement } = useBasket();
 
-  const handlePlus = () => handleIncrement(dish.id);
-  const handleMinus = () => handleDecrement(dish.id);
+  if (!dish) return null;
 
   return (
-    <li>
+    <li className="menu-item">
       <span>{name}</span>
-      <span style={{ margin: '5px', color: 'green' }}>{count}</span>
       <div className="menu-item__controls">
-        <Counter value={count} onIncrement={handlePlus} onDecrement={handleMinus} />
+        <Counter
+          value={count}
+          onIncrement={() => increment(dish.id)}
+          onDecrement={() => decrement(dish.id)}
+          canIncrement={count < COUNTER_CONST_MENU.MAX}
+          canDecrement={count > COUNTER_CONST_MENU.MIN}
+        />
       </div>
     </li>
   );

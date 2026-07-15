@@ -1,10 +1,11 @@
-import { RestaurantCardHeader } from '../RestaurantCardHeader/RestaurantCardHeader';
-import { MenuHeader } from '../MenuHeader/MenuHeader';
+import { RestaurantCardTitle } from '../RestaurantCardTitle/RestaurantCardTitle';
+import { MenuTitle } from '../MenuTitle/MenuTitle';
 import { MenuList } from '../MenuList/MenuList';
-import { ReviewsHeader } from '../ReviewsHeader/ReviewsHeader';
+import { ReviewsTitle } from '../ReviewsTitle/ReviewsTitle';
 import { ReviewsList } from '../ReviewsList/ReviewsList';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
-export const RestaurantCard = ({ restaurant, basket, handleIncrement, handleDecrement }) => {
+export const RestaurantCard = ({ restaurant }) => {
   const { name, menu, reviews } = restaurant;
 
   return (
@@ -17,17 +18,12 @@ export const RestaurantCard = ({ restaurant, basket, handleIncrement, handleDecr
         marginBottom: '20px',
       }}
     >
-      <RestaurantCardHeader name={name} />
-      <MenuHeader title="Menu" />
-      <MenuList
-        menuItems={menu}
-        title="Menu"
-        basket={basket}
-        handleIncrement={handleIncrement}
-        handleDecrement={handleDecrement}
-      />
-      <ReviewsHeader title="Reviews" />
+      <RestaurantCardTitle title={name} />
+      <MenuTitle title="Menu" />
+      <MenuList menuItems={menu} title="Menu" />
+      <ReviewsTitle title="Reviews" />
       <ReviewsList reviewItems={reviews} />
+      <ReviewForm />
     </article>
   );
 };
