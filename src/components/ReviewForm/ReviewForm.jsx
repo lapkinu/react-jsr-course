@@ -4,6 +4,8 @@ import { useReviewForm } from '../../hooks/useReviewForm';
 import { RatingStars } from '../RatingStars/RatingStars';
 import { COUNTER_CONST_RATING } from '../../constants/counterConst';
 
+import styles from './ReviewForm.module.css';
+
 export const ReviewForm = () => {
   const { form, setName, setText, incrementRating, decrementRating, clearForm } = useReviewForm();
 
@@ -17,11 +19,12 @@ export const ReviewForm = () => {
     <>
       <ReviewFormTitle title="Leave your review" />
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="review-name">Name: </label>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.field}>
+          <label htmlFor="review-name">Name:</label>
 
           <input
+            className={styles.input}
             id="review-name"
             name="name"
             type="text"
@@ -32,9 +35,11 @@ export const ReviewForm = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="review-text">Review: </label>
+        <div className={styles.field}>
+          <label htmlFor="review-text">Review:</label>
+
           <textarea
+            className={styles.textarea}
             id="review-text"
             name="text"
             autoComplete="off"
@@ -45,9 +50,11 @@ export const ReviewForm = () => {
           />
         </div>
 
-        <div>
-          <span>Rating:</span>
+        <div className={styles.rating}>
+          <span className={styles.label}>Rating:</span>
+
           <RatingStars rating={form.rating} max={COUNTER_CONST_RATING.MAX} />
+
           <Counter
             value={form.rating}
             onIncrement={incrementRating}
@@ -57,9 +64,12 @@ export const ReviewForm = () => {
           />
         </div>
 
-        <div>
-          <button type="submit">Send Review</button>
-          <button type="button" onClick={clearForm}>
+        <div className={styles.actions}>
+          <button className={styles.submit} type="submit">
+            Send Review
+          </button>
+
+          <button className={styles.clear} type="button" onClick={clearForm}>
             Clear Form
           </button>
         </div>

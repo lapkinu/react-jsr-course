@@ -3,6 +3,8 @@ import { Counter } from '../Counter/Counter';
 import { COUNTER_CONST_MENU } from '../../constants/counterConst';
 import { useUser } from '../../hooks/useUser';
 
+import styles from './MenuItem.module.css';
+
 export const MenuItem = ({ dish, name, count }) => {
   const { increment, decrement } = useBasket();
   const { user } = useUser();
@@ -10,9 +12,10 @@ export const MenuItem = ({ dish, name, count }) => {
   if (!dish) return null;
 
   return (
-    <li className="menu-item">
-      <span>{name}</span>
-      <div className="menu-item__controls">
+    <li className={styles.item}>
+      <span className={styles.name}>{name}</span>
+
+      <div className={styles.controls}>
         {user && (
           <Counter
             value={count}

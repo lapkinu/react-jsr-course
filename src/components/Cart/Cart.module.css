@@ -1,0 +1,33 @@
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button,
+.clear {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button {
+  background: var(--primary);
+  color: white;
+}
+
+.clear {
+  background: var(--danger);
+  color: white;
+}
+
+.button:hover,
+.clear:hover {
+  opacity: 0.85;
+}
+
+.count {
+  margin-left: 6px;
+}
