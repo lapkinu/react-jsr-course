@@ -8,11 +8,11 @@ export const Counter = ({
   canDecrement = true,
 }) => {
   return (
-    <div className={styles.Counter}>
+    <div className={styles.counter}>
       <button
         style={{ margin: '5px' }}
         type="button"
-        className={styles.button}
+        className={styles.counterButton}
         onClick={onDecrement}
         disabled={!canDecrement}
       >
@@ -26,7 +26,7 @@ export const Counter = ({
       <button
         style={{ margin: '5px' }}
         type="button"
-        className={styles.button}
+        className={styles.counterButton}
         onClick={onIncrement}
         disabled={!canIncrement}
       >

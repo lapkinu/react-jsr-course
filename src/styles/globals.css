@@ -67,6 +67,7 @@ button {
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
+  align-content: center;
 }
 
 button:hover:not(:disabled) {
