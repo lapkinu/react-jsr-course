@@ -2,15 +2,18 @@ import { ThemeSwitcher } from '../Buttons/ThemeSwitcher';
 import { UserLogin } from '../Buttons/UserLogin';
 import { Cart } from '../Cart/Cart';
 
+import styles from './Header.module.css';
+
 export const Header = () => {
   return (
-    <>
-      <header>
-        <h2>Header</h2>
+    <header className={styles.header}>
+      <h2 className={styles.title}>Header</h2>
+
+      <div className={styles.actions}>
         <Cart />
         <ThemeSwitcher />
         <UserLogin />
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
