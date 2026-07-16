@@ -4,9 +4,11 @@ import { MenuList } from '../MenuList/MenuList';
 import { ReviewsTitle } from '../ReviewsTitle/ReviewsTitle';
 import { ReviewsList } from '../ReviewsList/ReviewsList';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
+import { useUser } from '../../hooks/useUser';
 
 export const RestaurantCard = ({ restaurant }) => {
   const { name, menu, reviews } = restaurant;
+  const { user } = useUser();
 
   return (
     <article
@@ -23,7 +25,7 @@ export const RestaurantCard = ({ restaurant }) => {
       <MenuList menuItems={menu} title="Menu" />
       <ReviewsTitle title="Reviews" />
       <ReviewsList reviewItems={reviews} />
-      <ReviewForm />
+      {user && <ReviewForm />}
     </article>
   );
 };
