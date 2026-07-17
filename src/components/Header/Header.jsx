@@ -11,9 +11,7 @@ export const Header = () => {
 
       <div className={styles.actions}>
         <Cart />
-
         <ThemeSwitcher />
-
         <UserLogin />
       </div>
     </header>

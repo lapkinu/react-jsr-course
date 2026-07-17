@@ -10,6 +10,22 @@
   gap: 6px;
 }
 
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+  color: var(--text-color);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+}
+
 .label {
   font-weight: 500;
   color: var(--text-color);
