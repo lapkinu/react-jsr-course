@@ -1,0 +1,34 @@
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.counterButton {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.counterButton:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+}
+
+.value {
+  color: #22c55e;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}

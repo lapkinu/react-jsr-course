@@ -1,0 +1,6 @@
+.empty {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+}

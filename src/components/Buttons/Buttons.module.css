@@ -1,0 +1,42 @@
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.username {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.logoutBtn {
+  background: var(--danger);
+}
+
+.logoutBtn:hover {
+  opacity: 0.85;
+}
+
+.themeBtn {
+  min-width: 120px;
+}

@@ -1,14 +1,10 @@
+import styles from './RatingStars.module.css';
+
 export const RatingStars = ({ rating, max = 5 }) => {
   return (
-    <span style={{ fontSize: '1.4em', marginLeft: '8px' }}>
+    <span className={styles.stars}>
       {Array.from({ length: max }).map((_, index) => (
-        <span
-          key={index}
-          style={{
-            color: index < rating ? '#ffd700' : '#ddd',
-            transition: 'color 0.2s',
-          }}
-        >
+        <span key={index} className={index < rating ? styles.filled : styles.empty}>
           ★
         </span>
       ))}

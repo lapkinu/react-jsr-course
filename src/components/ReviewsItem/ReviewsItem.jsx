@@ -1,3 +1,5 @@
+import styles from './ReviewsItem.module.css';
+
 export const ReviewsItem = ({ text }) => {
-  return <li>{text}</li>;
+  return <li className={styles.item}>{text}</li>;
 };

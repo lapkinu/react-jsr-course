@@ -1,3 +1,5 @@
+import styles from './Counter.module.css';
+
 export const Counter = ({
   value = 0,
   onIncrement,
@@ -6,25 +8,21 @@ export const Counter = ({
   canDecrement = true,
 }) => {
   return (
-    <div className="counter">
+    <div className={styles.counter}>
       <button
-        style={{ margin: '5px' }}
         type="button"
-        className="counter__button"
+        className={styles.counterButton}
         onClick={onDecrement}
         disabled={!canDecrement}
       >
         -
       </button>
 
-      <span style={{ color: 'green' }} className="counter__value">
-        {value}
-      </span>
+      <span className={styles.value}>{value}</span>
 
       <button
-        style={{ margin: '5px' }}
         type="button"
-        className="counter__button"
+        className={styles.counterButton}
         onClick={onIncrement}
         disabled={!canIncrement}
       >

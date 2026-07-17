@@ -1,10 +1,14 @@
 import { Layout } from './Layout';
 import { RestaurantsPage } from './pages/RestaurantsPage/RestaurantsPage';
+import { ScrollProgress } from './components/ScrollProgress/ScrollProgress';
 
 export const App = () => {
   return (
-    <Layout>
-      <RestaurantsPage title="Restaurants page" />
-    </Layout>
+    <>
+      <ScrollProgress />
+      <Layout>
+        <RestaurantsPage title="Restaurants page" />
+      </Layout>
+    </>
   );
 };
