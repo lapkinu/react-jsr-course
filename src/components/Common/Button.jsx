@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from '../../styles/components/Button.module.css';
+import styles from './Button.module.css';
 
 export const Button = ({ variant = 'primary', size = 'medium', className, children, ...props }) => {
   return (

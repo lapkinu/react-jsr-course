@@ -3,10 +3,6 @@
   border-radius: var(--radius);
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background 0.2s,
-    transform 0.2s,
-    opacity 0.2s;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -8,7 +8,7 @@ export const ThemeSwitcher = () => {
   return (
     <div className={styles.controls}>
       <Button variant="primary" onClick={toggleTheme}>
-        {theme === 'light' ? '🌙 dark' : '☀️ light'}
+        {theme === 'light' ? 'dark' : 'light'}
       </Button>
     </div>
   );

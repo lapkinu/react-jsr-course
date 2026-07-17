@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     const userData = mockUsers[lowerName] || {
       name: trimmedName,
       role: 'user',
-      avatar: '👤',
+      avatar: '',
     };
 
     setUser(userData);

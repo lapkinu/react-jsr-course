@@ -11,9 +11,6 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background 0.2s,
-    transform 0.2s;
 }
 
 .button:hover {

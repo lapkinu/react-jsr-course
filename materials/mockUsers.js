@@ -12,6 +12,6 @@ export const mockUsers = {
   test: {
     name: 'test',
     role: 'user',
-    avatar: '🧪',
+    avatar: '',
   },
 };
