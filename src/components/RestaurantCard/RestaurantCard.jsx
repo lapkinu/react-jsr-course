@@ -4,13 +4,13 @@ import { MenuList } from '../MenuList/MenuList';
 import { ReviewsTitle } from '../ReviewsTitle/ReviewsTitle';
 import { ReviewsList } from '../ReviewsList/ReviewsList';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
-import { useUser } from '../../hooks/useUser';
+import { useAuth } from '../../hooks/useAuth';
 
 import styles from './RestaurantCard.module.css';
 
 export const RestaurantCard = ({ restaurant }) => {
   const { name, menu, reviews } = restaurant;
-  const { user } = useUser();
+  const { user } = useAuth();
 
   return (
     <article className={styles.card}>

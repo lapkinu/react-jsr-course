@@ -1,13 +1,13 @@
 import { useBasket } from '../../hooks/useBasket';
 import { Counter } from '../Counter/Counter';
 import { COUNTER_CONST_MENU } from '../../constants/counterConst';
-import { useUser } from '../../hooks/useUser';
+import { useAuth } from '../../hooks/useAuth';
 
 import styles from './MenuItem.module.css';
 
 export const MenuItem = ({ dish, name, count }) => {
   const { increment, decrement } = useBasket();
-  const { user } = useUser();
+  const { user } = useAuth();
 
   if (!dish) return null;
 
