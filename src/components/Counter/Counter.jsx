@@ -10,7 +10,6 @@ export const Counter = ({
   return (
     <div className={styles.counter}>
       <button
-        style={{ margin: '5px' }}
         type="button"
         className={styles.counterButton}
         onClick={onDecrement}
@@ -19,12 +18,9 @@ export const Counter = ({
         -
       </button>
 
-      <span style={{ color: 'green' }} className="counter__value">
-        {value}
-      </span>
+      <span className={styles.value}>{value}</span>
 
       <button
-        style={{ margin: '5px' }}
         type="button"
         className={styles.counterButton}
         onClick={onIncrement}

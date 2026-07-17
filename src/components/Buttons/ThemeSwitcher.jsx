@@ -1,5 +1,5 @@
 import { useTheme } from '../../hooks/useTheme';
-import classNames from 'classnames';
+import { Button } from '../Common/Button';
 import styles from './Buttons.module.css';
 
 export const ThemeSwitcher = () => {
@@ -7,9 +7,9 @@ export const ThemeSwitcher = () => {
 
   return (
     <div className={styles.controls}>
-      <button onClick={toggleTheme} className={classNames(styles.button, styles.themeBtn)}>
+      <Button variant="primary" onClick={toggleTheme}>
         {theme === 'light' ? '🌙 Тёмная' : '☀️ Светлая'}
-      </button>
+      </Button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useUser } from '../../hooks/useUser';
-import classNames from 'classnames';
+import { Button } from '../Common/Button';
 import styles from './Buttons.module.css';
 
 export const UserLogin = () => {
@@ -15,14 +15,14 @@ export const UserLogin = () => {
       {user ? (
         <div className={styles.userBlock}>
           <span className={styles.username}>{user.name}</span>
-          <button onClick={logout} className={classNames(styles.button, styles.logoutBtn)}>
+          <Button variant="danger" onClick={logout}>
             Выйти
-          </button>
+          </Button>
         </div>
       ) : (
-        <button onClick={handleLogin} className={styles.button}>
+        <Button variant="primary" onClick={handleLogin}>
           Войти
-        </button>
+        </Button>
       )}
     </div>
   );

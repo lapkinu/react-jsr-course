@@ -13,16 +13,13 @@ export const RestaurantsPage = ({ title }) => {
   );
 
   if (!restaurants || restaurants.length === 0) {
-    return (
-      <p style={{ color: 'gray' }} className="reviews-empty">
-        The list of restaurants is empty...
-      </p>
-    );
+    return <p style={{ color: 'gray' }}>The list of restaurants is empty...</p>;
   }
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+    <div>
       <RestaurantsPageTitle title={title} />
+
       <div className="restaurants-tabs">
         <RestaurantTabs
           restaurants={restaurants}
@@ -30,6 +27,7 @@ export const RestaurantsPage = ({ title }) => {
           onTabClick={setActiveRestaurantId}
         />
       </div>
+
       <RestaurantCard restaurant={activeRestaurant} />
     </div>
   );

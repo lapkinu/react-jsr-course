@@ -1,0 +1,14 @@
+.stars {
+  font-size: 1.4em;
+  margin-left: 8px;
+}
+
+.filled {
+  color: #ffd700;
+  transition: color 0.2s;
+}
+
+.empty {
+  color: #ddd;
+  transition: color 0.2s;
+}

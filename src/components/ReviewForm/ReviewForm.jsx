@@ -3,7 +3,7 @@ import { Counter } from '../Counter/Counter';
 import { useReviewForm } from '../../hooks/useReviewForm';
 import { RatingStars } from '../RatingStars/RatingStars';
 import { COUNTER_CONST_RATING } from '../../constants/counterConst';
-
+import { Button } from '../Common/Button';
 import styles from './ReviewForm.module.css';
 
 export const ReviewForm = () => {
@@ -18,11 +18,9 @@ export const ReviewForm = () => {
   return (
     <>
       <ReviewFormTitle title="Leave your review" />
-
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.field}>
           <label htmlFor="review-name">Name:</label>
-
           <input
             className={styles.input}
             id="review-name"
@@ -37,7 +35,6 @@ export const ReviewForm = () => {
 
         <div className={styles.field}>
           <label htmlFor="review-text">Review:</label>
-
           <textarea
             className={styles.textarea}
             id="review-text"
@@ -52,9 +49,7 @@ export const ReviewForm = () => {
 
         <div className={styles.rating}>
           <span className={styles.label}>Rating:</span>
-
           <RatingStars rating={form.rating} max={COUNTER_CONST_RATING.MAX} />
-
           <Counter
             value={form.rating}
             onIncrement={incrementRating}
@@ -65,13 +60,12 @@ export const ReviewForm = () => {
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.submit} type="submit">
+          <Button variant="primary" type="submit">
             Send Review
-          </button>
-
-          <button className={styles.clear} type="button" onClick={clearForm}>
+          </Button>
+          <Button variant="danger" type="button" onClick={clearForm}>
             Clear Form
-          </button>
+          </Button>
         </div>
       </form>
     </>

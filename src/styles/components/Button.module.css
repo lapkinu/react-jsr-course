@@ -1,0 +1,43 @@
+.button {
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.danger {
+  background: var(--danger);
+  color: white;
+}
+.danger:hover {
+  opacity: 0.85;
+}
+
+/* Размеры */
+.small {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.medium {
+  padding: 8px 16px;
+}
