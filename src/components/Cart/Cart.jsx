@@ -1,4 +1,6 @@
 import { useBasket } from '../../hooks/useBasket';
+import { Button } from '../Common/Button';
+import styles from './Cart.module.css';
 
 export const Cart = () => {
   const { getTotalItems, clearBasket } = useBasket();
@@ -10,16 +12,16 @@ export const Cart = () => {
   };
 
   return (
-    <div>
-      <button>
+    <div className={styles.cart}>
+      <Button variant="primary">
         🛒 Cart
-        {totalItems > 0 && <span className="cart-count">({totalItems})</span>}
-      </button>
+        {totalItems > 0 && <span className={styles.count}>({totalItems})</span>}
+      </Button>
 
       {totalItems > 0 && (
-        <button onClick={handleClearCart} title="Clear cart">
+        <Button variant="danger" onClick={handleClearCart} title="Clear cart">
           🗑️ Clear
-        </button>
+        </Button>
       )}
     </div>
   );

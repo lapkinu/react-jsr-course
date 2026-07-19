@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  padding: 12px;
+  color: var(--text-secondary);
+  font-style: italic;
+}

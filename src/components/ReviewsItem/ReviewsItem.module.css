@@ -1,0 +1,8 @@
+.item {
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
