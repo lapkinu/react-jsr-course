@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { selectRestaurantById } from '../../store/selectors';
 import { RestaurantCardTitle } from '../RestaurantCardTitle/RestaurantCardTitle';
 import { MenuTitle } from '../MenuTitle/MenuTitle';
 import { MenuList } from '../MenuList/MenuList';
@@ -8,17 +10,19 @@ import { useAuth } from '../../hooks/useAuth';
 
 import styles from './RestaurantCard.module.css';
 
-export const RestaurantCard = ({ restaurant }) => {
-  const { name, menu, reviews } = restaurant;
+export const RestaurantCard = ({ restaurantId }) => {
+  const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId));
   const { user } = useAuth();
+
+  if (!restaurant) return null;
 
   return (
     <article className={styles.card}>
-      <RestaurantCardTitle title={name} />
+      <RestaurantCardTitle title={restaurant.name} />
       <MenuTitle title="Menu" />
-      <MenuList menuItems={menu} title="Menu" />
+      <MenuList menuIds={restaurant.menu} />
       <ReviewsTitle title="Reviews" />
-      <ReviewsList reviewItems={reviews} />
+      <ReviewsList reviewIds={restaurant.reviews} />
       {user && <ReviewForm />}
     </article>
   );

@@ -1,36 +1,28 @@
-import { useMemo, useState } from 'react';
-import { restaurants } from '../../../materials/mock';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectRestaurantIds } from '../../store/selectors';
 import { RestaurantCard } from '../../components/RestaurantCard/RestaurantCard';
 import { RestaurantsPageTitle } from '../../components/RestaurantsPageTitle/RestaurantsPageTitle';
-import { RestaurantTabs } from '../../components/RestaurantTabs/RestaurantTabs';
-
-import styles from './RestaurantsPage.module.css';
+import { RestaurantTabsContainer } from '../../components/RestaurantTabs/RestaurantTabsContainer';
 
 export const RestaurantsPage = ({ title }) => {
-  const [activeRestaurantId, setActiveRestaurantId] = useState(restaurants[0]?.id);
+  const restaurantIds = useSelector(selectRestaurantIds);
+  const [userSelectedId, setUserSelectedId] = useState(null);
+  const activeRestaurantId = userSelectedId || restaurantIds[0];
 
-  const activeRestaurant = useMemo(
-    () => restaurants.find((restaurant) => restaurant.id === activeRestaurantId),
-    [activeRestaurantId],
-  );
-
-  if (!restaurants || restaurants.length === 0) {
-    return <p className={styles.empty}>The list of restaurants is empty...</p>;
-  }
+  if (!restaurantIds || restaurantIds.length === 0) return <p>Empty...</p>;
 
   return (
     <div>
       <RestaurantsPageTitle title={title} />
-
       <div className="restaurants-tabs">
-        <RestaurantTabs
-          restaurants={restaurants}
+        <RestaurantTabsContainer
+          restaurantIds={restaurantIds}
           activeId={activeRestaurantId}
-          onTabClick={setActiveRestaurantId}
+          onTabClick={setUserSelectedId}
         />
       </div>
-
-      <RestaurantCard restaurant={activeRestaurant} />
+      {activeRestaurantId && <RestaurantCard restaurantId={activeRestaurantId} />}
     </div>
   );
 };
