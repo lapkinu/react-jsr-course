@@ -1,3 +1,3 @@
 export const MenuTitle = ({ title }) => {
-  return <h3 className="menu-title">{title}</h3>;
+  return <h3>{title}</h3>;
 };

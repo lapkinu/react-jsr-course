@@ -1,3 +1,3 @@
 export const ReviewsTitle = ({ title }) => {
-  return <h3 className="reviews-title">{title}</h3>;
+  return <h3>{title}</h3>;
 };
