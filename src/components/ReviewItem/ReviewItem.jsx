@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectReviewById } from '../../store/selectors';
 import { ReviewUser } from '../ReviewUser/ReviewUser';
+import { RatingStars } from '../RatingStars/RatingStars';
 import styles from './ReviewItem.module.css';
 
 export const ReviewItem = ({ reviewId }) => {
@@ -11,7 +12,7 @@ export const ReviewItem = ({ reviewId }) => {
     <li className={styles.item}>
       <div className={styles.header}>
         <ReviewUser userId={review.userId} />
-        <span className={styles.rating}> {review.rating} ★ </span>
+        <RatingStars rating={review.rating} />
       </div>
       <p className={styles.text}>{review.text}</p>
     </li>

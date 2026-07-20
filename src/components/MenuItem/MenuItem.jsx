@@ -19,7 +19,7 @@ export const MenuItem = ({ dishId }) => {
     <li className={styles.item}>
       <div className={styles.info}>
         <span className={styles.name}>{dish.name}</span>
-        <span className={styles.price}> - {dish.price}€</span>
+        <span className={styles.price}> {dish.price} €</span>
       </div>
 
       <div className={styles.controls}>
