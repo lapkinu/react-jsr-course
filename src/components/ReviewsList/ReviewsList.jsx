@@ -3,7 +3,7 @@ import styles from './ReviewsList.module.css';
 
 export const ReviewsList = ({ reviewIds }) => {
   if (!reviewIds || reviewIds.length === 0) {
-    return <p className={styles.empty}>No reviews yet.</p>;
+    return <p className={styles.empty}>This restaurant has no reviews yet....</p>;
   }
 
   return (

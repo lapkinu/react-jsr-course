@@ -1,4 +1,3 @@
-// MenuItem.jsx
 import { useSelector, useDispatch } from 'react-redux';
 import { selectDishById, selectDishCountInCart } from '../../store/selectors';
 import { increment, decrement } from '../../store/cart';

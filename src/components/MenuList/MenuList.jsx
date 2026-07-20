@@ -3,7 +3,9 @@ import styles from './MenuList.module.css';
 
 export const MenuList = ({ menuIds }) => {
   if (!menuIds || menuIds.length === 0) {
-    return <p className={styles.empty}>The menu is temporarily unavailable...</p>;
+    return (
+      <p className={styles.empty}>The menu of this restaurant is temporarily unavailable...</p>
+    );
   }
 
   return (

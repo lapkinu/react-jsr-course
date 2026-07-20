@@ -5,23 +5,24 @@ import { RestaurantCard } from '../../components/RestaurantCard/RestaurantCard';
 import { RestaurantsPageTitle } from '../../components/RestaurantsPageTitle/RestaurantsPageTitle';
 import { RestaurantTabsContainer } from '../../components/RestaurantTabs/RestaurantTabsContainer';
 
+import styles from './RestaurantsPage.module.css';
+
 export const RestaurantsPage = ({ title }) => {
   const restaurantIds = useSelector(selectRestaurantIds);
   const [userSelectedId, setUserSelectedId] = useState(null);
   const activeRestaurantId = userSelectedId || restaurantIds[0];
 
-  if (!restaurantIds || restaurantIds.length === 0) return <p>Empty...</p>;
+  if (!restaurantIds || restaurantIds.length === 0)
+    return <p className={styles.empty}>The list of restaurants is empty...</p>;
 
   return (
     <div>
       <RestaurantsPageTitle title={title} />
-      <div className="restaurants-tabs">
-        <RestaurantTabsContainer
-          restaurantIds={restaurantIds}
-          activeId={activeRestaurantId}
-          onTabClick={setUserSelectedId}
-        />
-      </div>
+      <RestaurantTabsContainer
+        restaurantIds={restaurantIds}
+        activeId={activeRestaurantId}
+        onTabClick={setUserSelectedId}
+      />
       {activeRestaurantId && <RestaurantCard restaurantId={activeRestaurantId} />}
     </div>
   );

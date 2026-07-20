@@ -5,7 +5,7 @@ import styles from './ReviewUser.module.css';
 export const ReviewUser = ({ userId }) => {
   const user = useSelector((state) => selectUserById(state, userId));
 
-  const name = user ? user.name : 'Anonymous';
+  const name = user ? user.name : 'guest';
 
   return (
     <div className={styles.container}>

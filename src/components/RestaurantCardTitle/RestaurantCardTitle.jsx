@@ -1,3 +1,3 @@
 export const RestaurantCardTitle = ({ title }) => {
-  return <h2 className="restaurant-card-title">{title}</h2>;
+  return <h2>{title}</h2>;
 };

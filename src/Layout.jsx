@@ -5,14 +5,12 @@ import { AuthProvider } from './context/AuthContext';
 
 export const Layout = ({ children }) => {
   return (
-    <div className="app-layout">
-      <ThemeProvider>
-        <AuthProvider>
-          <Header />
-          <main>{children}</main>
-        </AuthProvider>
-        <Footer />
-      </ThemeProvider>
-    </div>
+    <ThemeProvider>
+      <AuthProvider>
+        <Header />
+        <main>{children}</main>
+      </AuthProvider>
+      <Footer />
+    </ThemeProvider>
   );
 };
