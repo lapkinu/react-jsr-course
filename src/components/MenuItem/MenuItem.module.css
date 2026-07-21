@@ -18,3 +18,8 @@
   display: flex;
   align-items: center;
 }
+
+.price {
+  color: #f0ad4e;
+  font-weight: 600;
+}

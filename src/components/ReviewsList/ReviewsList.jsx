@@ -1,17 +1,16 @@
-import { ReviewsItem } from '../ReviewsItem/ReviewsItem';
-
+import { ReviewItem } from '../ReviewItem/ReviewItem';
 import styles from './ReviewsList.module.css';
 
-export const ReviewsList = ({ reviewItems }) => {
-  if (!reviewItems || reviewItems.length === 0) {
+export const ReviewsList = ({ reviewIds }) => {
+  if (!reviewIds || reviewIds.length === 0) {
     return <p className={styles.empty}>This restaurant has no reviews yet....</p>;
   }
 
   return (
-    <section>
-      <ul className={styles.list}>
-        {reviewItems.map((review) => (
-          <ReviewsItem key={review.id} text={review.text} />
+    <section className={styles.reviewsList}>
+      <ul>
+        {reviewIds.map((reviewId) => (
+          <ReviewItem key={reviewId} reviewId={reviewId} />
         ))}
       </ul>
     </section>
