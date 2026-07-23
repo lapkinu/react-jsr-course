@@ -5,7 +5,6 @@ import styles from './RestaurantTabsContainer.module.css';
 
 const RestaurantTab = ({ id }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
-  // console.log(restaurant);
   if (!restaurant) return null;
 
   return <Tab name={restaurant.name} to={`/restaurants/${id}`} />;
