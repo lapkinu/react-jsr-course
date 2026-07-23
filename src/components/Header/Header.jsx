@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { ThemeSwitcher } from '../Buttons/ThemeSwitcher';
 import { UserLogin } from '../Buttons/UserLogin';
 import { Cart } from '../Cart/Cart';
@@ -8,6 +9,8 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <h2 className={styles.title}>Restaurants</h2>
+      <Link to="/homepage">homepage</Link>
+      <Link to="/restaurants">restaurants</Link>
 
       <div className={styles.actions}>
         <Cart />

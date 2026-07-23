@@ -10,7 +10,7 @@ const initialState = {
 };
 
 const restorantsSlice = createSlice({
-  name: 'restorents',
+  name: 'restaurants',
   initialState,
   reducers: {},
 });
