@@ -3,9 +3,8 @@ import { Layout } from '../Layout';
 import { RestaurantsPage } from '../pages/RestaurantsPage/RestaurantsPage';
 import { RestaurantCard } from '../components/RestaurantCard/RestaurantCard';
 import { MenuList } from '../components/MenuList/MenuList';
-import { ReviewsList } from '../components/ReviewsList/ReviewsList';
 import { HomePage } from '../pages/RestaurantsPage/HomePage/HomePage';
-import { ReviewForm } from '../components/ReviewForm/ReviewForm';
+import { ReviewsContainer } from '../components/ReviewsContainer/ReviewsContainer';
 
 export const AppRouter = () => {
   return (
@@ -18,14 +17,7 @@ export const AppRouter = () => {
             <Route path=":restaurantId" element={<RestaurantCard />}>
               <Route index element={<Navigate to="menu" replace />} />
               <Route path="menu" element={<MenuList />} />
-              <Route
-                path="reviews"
-                element={
-                  <>
-                    <ReviewsList /> <ReviewForm />
-                  </>
-                }
-              />
+              <Route path="reviews" element={<ReviewsContainer />} />
             </Route>
           </Route>
 
