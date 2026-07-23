@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.code {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ef4444;
+  margin: 0;
+  line-height: 1;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin: 12px 0;
+}
+
+.message {
+  color: #6b7280;
+  max-width: 400px;
+  margin-bottom: 32px;
+  font-size: 1.05rem;
+}
+
+.homeLink {
+  display: inline-block;
+  background-color: #1f2937;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.homeLink:hover {
+  background-color: #374151;
+}

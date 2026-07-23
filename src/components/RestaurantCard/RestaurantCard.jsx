@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../store/selectors';
 import { RestaurantCardTitle } from '../RestaurantCardTitle/RestaurantCardTitle';
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet, Link } from 'react-router';
 
 import styles from './RestaurantCard.module.css';
 import { useParams } from 'react-router';
@@ -16,6 +16,10 @@ export const RestaurantCard = () => {
 
   return (
     <article className={styles.card}>
+      <Link to="/restaurants" className={styles.backLink}>
+        &larr; All restaurants
+      </Link>
+
       <RestaurantCardTitle title={restaurant.name} />
 
       <nav className={styles.navigation}>
