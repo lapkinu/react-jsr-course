@@ -5,6 +5,7 @@ import { increment, decrement } from '../../store/cart';
 import { Counter } from '../../components/Counter/Counter';
 import { COUNTER_CONST_MENU } from '../../constants/counterConst';
 import { useAuth } from '../../hooks/useAuth';
+import { Button } from '../../components/Common/Button';
 
 import styles from './DishPage.module.css';
 
@@ -30,23 +31,19 @@ export const DishPage = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.backButton} onClick={() => navigate(-1)}>
+      <Button className={styles.backButton} onClick={() => navigate(-1)}>
         &larr; Back
-      </button>
-
+      </Button>
       <article className={styles.card}>
         <h1 className={styles.title}>{dish.name}</h1>
-
         {dish.ingredients && dish.ingredients.length > 0 && (
           <div className={styles.ingredientsBlock}>
             <h3 className={styles.subTitle}>Ingredients:</h3>
             <p className={styles.ingredients}>{dish.ingredients.join(', ')}</p>
           </div>
         )}
-
         <div className={styles.footer}>
           <span className={styles.price}>price {dish.price} €</span>
-
           {user && (
             <Counter
               value={count}

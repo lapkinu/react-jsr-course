@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { selectRestaurantIds } from '../../store/selectors';
 import { RestaurantsPageTitle } from '../../components/RestaurantsPageTitle/RestaurantsPageTitle';
 import { RestaurantTabsContainer } from '../../components/RestaurantTabs/RestaurantTabsContainer';
-// import { Outlet } from 'react-router';
 
 import styles from './RestaurantsPage.module.css';
 
@@ -16,7 +15,6 @@ export const RestaurantsPage = ({ title = 'Restaurants page' }) => {
     <div>
       <RestaurantsPageTitle title={title} />
       <RestaurantTabsContainer restaurantIds={restaurantIds} />
-      {/* <Outlet /> */}
     </div>
   );
 };

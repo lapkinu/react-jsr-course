@@ -20,7 +20,7 @@ export const MenuItem = ({ dishId }) => {
     <li className={styles.item}>
       <div className={styles.info}>
         <Link to={`/dish/${dishId}`} className={styles.nameLink}>
-          <span className={styles.name}>{dish.name}</span>
+          <span className={styles.nameLink}>{dish.name}</span>
         </Link>
         <span className={styles.price}> {dish.price} €</span>
       </div>

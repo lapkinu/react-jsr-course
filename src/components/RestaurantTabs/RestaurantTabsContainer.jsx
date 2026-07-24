@@ -12,9 +12,11 @@ const RestaurantTab = ({ id }) => {
 
 export const RestaurantTabsContainer = ({ restaurantIds }) => {
   return (
-    <div className={styles.tabs}>
+    <div>
       {restaurantIds.map((id) => (
-        <RestaurantTab key={id} id={id} />
+        <div className={styles.tabs}>
+          <RestaurantTab key={id} id={id} />
+        </div>
       ))}
     </div>
   );

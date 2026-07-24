@@ -23,3 +23,12 @@
   color: #f0ad4e;
   font-weight: 600;
 }
+
+.nameLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nameLink:hover {
+  color: var(--accent-color, #a5bff7);
+}

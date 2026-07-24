@@ -27,7 +27,7 @@
 }
 
 .card {
-  background-color: var(--card-bg, #ffffff);
+  background: var(--surface);
   border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 12px;
   padding: 28px;
@@ -38,13 +38,13 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: var(--title-color, #111827);
+  color: var(--text-color);
 }
 
 .ingredientsBlock {
   margin: 20px 0;
   padding: 16px;
-  background-color: var(--secondary-bg, #f9fafb);
+  background: var(--surface);
   border-radius: 8px;
 }
 

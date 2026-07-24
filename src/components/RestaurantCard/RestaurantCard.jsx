@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../store/selectors';
 import { RestaurantCardTitle } from '../RestaurantCardTitle/RestaurantCardTitle';
 import { NavLink, Outlet, Link } from 'react-router';
+import { Button } from '../Common/Button';
 
 import styles from './RestaurantCard.module.css';
 import { useParams } from 'react-router';
@@ -16,21 +17,21 @@ export const RestaurantCard = () => {
 
   return (
     <article className={styles.card}>
-      <Link to="/restaurants" className={styles.backLink}>
-        &larr; All restaurants
+      <Link to="/restaurants">
+        <Button className={styles.link}>&larr; All restaurants</Button>
       </Link>
 
       <RestaurantCardTitle title={restaurant.name} />
 
       <nav className={styles.navigation}>
         <NavLink to="menu" className={({ isActive }) => (isActive ? styles.activeTab : styles.tab)}>
-          Menu
+          <Button className={styles.link}>Menu</Button>
         </NavLink>
         <NavLink
           to="reviews"
           className={({ isActive }) => (isActive ? styles.activeTab : styles.tab)}
         >
-          Reviews
+          <Button className={styles.link}>Reviews</Button>
         </NavLink>
       </nav>
       <Outlet context={{ menuIds: restaurant.menu, reviewIds: restaurant.reviews }} />
