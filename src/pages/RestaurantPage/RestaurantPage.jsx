@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../store/selectors';
-import { RestaurantCardTitle } from '../RestaurantCardTitle/RestaurantCardTitle';
+import { RestaurantCardTitle } from '../../components/RestaurantCardTitle/RestaurantCardTitle';
 import { NavLink, Outlet, Link } from 'react-router';
-import { Button } from '../Common/Button';
+import { Button } from '../../components/Common/Button';
 
-import styles from './RestaurantCard.module.css';
+import styles from './RestaurantPage.module.css';
 import { useParams } from 'react-router';
 
-export const RestaurantCard = () => {
+export const RestaurantPage = () => {
   const { restaurantId } = useParams();
   const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId));
 

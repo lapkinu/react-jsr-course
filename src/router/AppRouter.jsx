@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { Layout } from '../Layout';
 import { RestaurantsPage } from '../pages/RestaurantsPage/RestaurantsPage';
-import { RestaurantCard } from '../components/RestaurantCard/RestaurantCard';
+import { RestaurantPage } from '../pages/RestaurantPage/RestaurantPage';
 import { MenuList } from '../components/MenuList/MenuList';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { ReviewsContainer } from '../components/ReviewsContainer/ReviewsContainer';
@@ -16,7 +16,7 @@ export const AppRouter = () => {
           <Route index element={<Navigate to="homepage" replace />} />
           <Route path="homepage" element={<HomePage />} />
           <Route path="restaurants" element={<RestaurantsPage />} />
-          <Route path="restaurants/:restaurantId" element={<RestaurantCard />}>
+          <Route path="restaurants/:restaurantId" element={<RestaurantPage />}>
             <Route index element={<Navigate to="menu" replace />} />
             <Route path="menu" element={<MenuList />} />
             <Route path="reviews" element={<ReviewsContainer />} />
