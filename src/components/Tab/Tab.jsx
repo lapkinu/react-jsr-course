@@ -1,13 +1,13 @@
+import { NavLink } from 'react-router';
 import styles from './Tab.module.css';
 
-export const Tab = ({ name, isActive, onClick }) => {
+export const Tab = ({ name, to }) => {
   return (
-    <button
-      className={`${styles.tabButton} ${isActive ? styles.active : ''}`}
-      onClick={onClick}
-      disabled={isActive}
+    <NavLink
+      to={to}
+      className={({ isActive }) => `${styles.tabButton} ${isActive ? styles.active : ''}`}
     >
       {name}
-    </button>
+    </NavLink>
   );
 };

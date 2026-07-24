@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router';
 import { selectDishById, selectDishCountInCart } from '../../store/selectors';
 import { increment, decrement } from '../../store/cart';
 import { Counter } from '../Counter/Counter';
@@ -18,7 +19,9 @@ export const MenuItem = ({ dishId }) => {
   return (
     <li className={styles.item}>
       <div className={styles.info}>
-        <span className={styles.name}>{dish.name}</span>
+        <Link to={`/dish/${dishId}`} className={styles.nameLink}>
+          <span className={styles.nameLink}>{dish.name}</span>
+        </Link>
         <span className={styles.price}> {dish.price} €</span>
       </div>
 

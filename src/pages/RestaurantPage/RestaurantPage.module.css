@@ -5,4 +5,9 @@
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: var(--shadow);
+  min-height: 600px;
+}
+
+.link {
+  margin: 10px;
 }
