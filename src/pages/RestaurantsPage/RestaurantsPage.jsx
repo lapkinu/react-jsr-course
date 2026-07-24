@@ -12,7 +12,7 @@ export const RestaurantsPage = ({ title = 'Restaurants page' }) => {
     return <p className={styles.empty}>The list of restaurants is empty...</p>;
 
   return (
-    <div>
+    <div className={styles.container}>
       <RestaurantsPageTitle title={title} />
       <RestaurantTabsContainer restaurantIds={restaurantIds} />
     </div>
