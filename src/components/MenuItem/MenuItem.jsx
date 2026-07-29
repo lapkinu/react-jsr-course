@@ -1,18 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router';
-import { selectDishById, selectDishCountInCart } from '../../store/selectors';
-import { increment, decrement } from '../../store/cart';
+import { selectDishById } from '../../store/selectors';
 import { Counter } from '../Counter/Counter';
-import { COUNTER_CONST_MENU } from '../../constants/counterConst';
 import { useAuth } from '../../hooks/useAuth';
+import { useDishCounter } from '../../hooks/useDishCounter';
 
 import styles from './MenuItem.module.css';
 
 export const MenuItem = ({ dishId }) => {
-  const dispatch = useDispatch();
   const dish = useSelector((state) => selectDishById(state, dishId));
-  const count = useSelector((state) => selectDishCountInCart(state, dishId));
   const { user } = useAuth();
+
+  const counterProps = useDishCounter(dishId);
 
   if (!dish) return null;
 
@@ -25,17 +24,7 @@ export const MenuItem = ({ dishId }) => {
         <span className={styles.price}> {dish.price} €</span>
       </div>
 
-      <div className={styles.controls}>
-        {user && (
-          <Counter
-            value={count}
-            onIncrement={() => dispatch(increment(dishId))}
-            onDecrement={() => dispatch(decrement(dishId))}
-            canIncrement={count < COUNTER_CONST_MENU.MAX}
-            canDecrement={count > COUNTER_CONST_MENU.MIN}
-          />
-        )}
-      </div>
+      <div className={styles.controls}>{user && <Counter {...counterProps} />}</div>
     </li>
   );
 };

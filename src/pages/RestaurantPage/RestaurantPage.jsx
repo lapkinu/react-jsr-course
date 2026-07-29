@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../store/selectors';
 import { RestaurantCardTitle } from '../../components/RestaurantCardTitle/RestaurantCardTitle';
 import { NavLink, Outlet, Link } from 'react-router';
-import { Button } from '../../components/Common/Button';
 
 import styles from './RestaurantPage.module.css';
 import { useParams } from 'react-router';
@@ -17,21 +16,28 @@ export const RestaurantPage = () => {
 
   return (
     <article className={styles.card}>
-      <Link to="/restaurants">
-        <Button className={styles.link}>&larr; All restaurants</Button>
+      <Link to="/restaurants" className={styles.buttonLink}>
+        &larr; All restaurants
       </Link>
 
       <RestaurantCardTitle title={restaurant.name} />
 
       <nav className={styles.navigation}>
-        <NavLink to="menu" className={({ isActive }) => (isActive ? styles.activeTab : styles.tab)}>
-          <Button className={styles.link}>Menu</Button>
+        <NavLink
+          to="menu"
+          className={({ isActive }) =>
+            isActive ? `${styles.buttonLink} ${styles.active} ` : styles.buttonLink
+          }
+        >
+          Menu
         </NavLink>
         <NavLink
           to="reviews"
-          className={({ isActive }) => (isActive ? styles.activeTab : styles.tab)}
+          className={({ isActive }) =>
+            isActive ? `${styles.buttonLink} ${styles.active} ` : styles.buttonLink
+          }
         >
-          <Button className={styles.link}>Reviews</Button>
+          Reviews
         </NavLink>
       </nav>
       <Outlet context={{ menuIds: restaurant.menu, reviewIds: restaurant.reviews }} />

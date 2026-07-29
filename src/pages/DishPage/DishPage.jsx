@@ -1,22 +1,20 @@
 import { useParams, useNavigate } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectDishById, selectDishCountInCart } from '../../store/selectors';
-import { increment, decrement } from '../../store/cart';
+import { useSelector } from 'react-redux';
+import { selectDishById } from '../../store/selectors';
 import { Counter } from '../../components/Counter/Counter';
-import { COUNTER_CONST_MENU } from '../../constants/counterConst';
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../../components/Common/Button';
 
 import styles from './DishPage.module.css';
+import { useDishCounter } from '../../hooks/useDishCounter';
 
 export const DishPage = () => {
   const { dishId } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const dish = useSelector((state) => selectDishById(state, dishId));
-  const count = useSelector((state) => selectDishCountInCart(state, dishId));
   const { user } = useAuth();
+  const counterProps = useDishCounter(dishId);
 
   if (!dish) {
     return (
@@ -44,15 +42,7 @@ export const DishPage = () => {
         )}
         <div className={styles.footer}>
           <span className={styles.price}>price {dish.price} €</span>
-          {user && (
-            <Counter
-              value={count}
-              onIncrement={() => dispatch(increment(dishId))}
-              onDecrement={() => dispatch(decrement(dishId))}
-              canIncrement={count < COUNTER_CONST_MENU.MAX}
-              canDecrement={count > COUNTER_CONST_MENU.MIN}
-            />
-          )}
+          {user && <Counter {...counterProps} />}
         </div>
       </article>
     </div>
