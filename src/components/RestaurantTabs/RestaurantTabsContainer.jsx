@@ -3,17 +3,20 @@ import { selectRestaurantById } from '../../store/selectors';
 import { Tab } from '../Tab/Tab';
 import styles from './RestaurantTabsContainer.module.css';
 
-const RestaurantTab = ({ id, isActive, onClick }) => {
+const RestaurantTab = ({ id }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
   if (!restaurant) return null;
-  return <Tab name={restaurant.name} isActive={isActive} onClick={onClick} />;
+
+  return <Tab name={restaurant.name} to={`/restaurants/${id}`} />;
 };
 
-export const RestaurantTabsContainer = ({ restaurantIds, activeId, onTabClick }) => {
+export const RestaurantTabsContainer = ({ restaurantIds }) => {
   return (
-    <div className={styles.tabs}>
+    <div>
       {restaurantIds.map((id) => (
-        <RestaurantTab key={id} id={id} isActive={id === activeId} onClick={() => onTabClick(id)} />
+        <div className={styles.tabs}>
+          <RestaurantTab key={id} id={id} />
+        </div>
       ))}
     </div>
   );
